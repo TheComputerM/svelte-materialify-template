@@ -3,15 +3,9 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
-import sveltePreprocess from 'svelte-preprocess';
-
-const preprocess = sveltePreprocess({
-  scss: {
-    includePaths: ["theme"],
-  },
-});
 
 const production = !process.env.ROLLUP_WATCH;
+const { preprocess } = require('./svelte.config');
 
 function serve() {
   let server;
